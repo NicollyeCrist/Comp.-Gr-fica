@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Forminhas</title>
+        </head>
+        <body>
+            <h1>Aula 2</h1>
+
+            <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #f5acac;"></canvas>
+            <script src="script2.js"></script>
+        </body>
+</html>
+
+
+
+// javascript (script2.js) //
+
+window.onload = function() {
+
+const canvas = document.getElementById ("myCanvas");
+const ctx = canvas.getContext('2d');
+
+
+// Quadrado //
+
+function criarQuadrado (x, y, largura, cor){
+    ctx.fillStyle = cor;
+    ctx.fillRect(x, y, largura, largura);
+}
+
+function desenharQuadrados() {
+        const tamanhoQuadrado = 50;
+        const distancia =  5;
+        const larguraCanvas = canvas.width;
+        let x = 0;
+        while (x + tamanhoQuadrado <= larguraCanvas) { criarQuadrado(x, 0, tamanhoQuadrado, '#000');
+            x += tamanhoQuadrado + distancia;
+        }
+}
+
+desenharQuadrados();
+}
