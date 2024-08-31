@@ -41,4 +41,25 @@ function desenharQuadrados() {
 }
 
 desenharQuadrados();
+
+// circulos //
+
+function criarCirculo (x, y, tamanho, tamanho, tamanho, cor) {
+    ctx.beginPath ();
+    ctx.arc (120, 235, 20, 0, 2 * Math.PI);
+    ctx.fillStyle = cor;
+    ctx.fill (x, y, tamanho);
+    ctx.closePath (); 
+    }
+
+function desenharCirculos (){
+    const tamanhoCirculo = 20;
+    const distancia = 5;
+    const larguraCanvas = canvas.width;
+    let y = 50
+    while (y + tamanhoCirculo <= larguraCanvas) { criarCirculo(x, 0, tamanhoCirculo, '#008000')
+        y += tamanhoCirculo + distancia;
+    }
+}
+}
 }
