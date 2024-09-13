@@ -1,0 +1,77 @@
+// index.html //--
+
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Movimentação</title>
+        </head>
+        <body>
+            <h1>Aula 3</h1>
+
+            <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #f5acac;"></canvas>
+            <script src="script.js"></script>
+        </body>
+</html>
+
+// script.js //--
+
+(Movimentar o quadrado)
+
+window.onload = function() {
+
+    const canvas = document.getElementById ("myCanvas");
+    const context = canvas.getContext('2d');
+
+    let x = 0;
+    let y = 0;
+    const squareSize = 50;
+    const speed = 2;
+
+
+function drawSquare () {
+        // Limpa o canvas //
+        context.clearRect(0, 0, canvas.clientWidth, canvas.height);
+
+        // Desenha o quadrado //
+        context.fillStyle = '#FF0000'
+        context.fillRect(x, y, squareSize, squareSize);
+}
+
+function updatePosition () {
+        y += speed;
+        // Atingindo as bordas se reseta a posição //
+        if (y + squareSize > canvas.width) {
+            y = 0;
+    }
+}
+
+function gameLoop () {
+        updatePosition();
+        drawSquare();
+        requestAnimationFrame (gameLoop);
+
+    }
+        // Iniciar o loop //
+
+gameLoop();
+
+}
+
+(Bate e volta)
+
+// Alterar variável //
+const speed = 2; --> let speed = 2;
+
+
+// Alterar função //
+
+function updatePosition () {
+        // Atualizar a posição //
+        x += speed;
+        // Se colidir com borda direita ou esquerda, inverter a direção //
+        if (x + squareSize > canvas.width || x < 0) {
+            speed = -speed;
+    }
+}
