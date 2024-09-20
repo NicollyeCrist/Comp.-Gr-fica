@@ -1,0 +1,35 @@
+// Index.html //
+
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Inserir quadrado</title>
+        </head>
+        <body>
+            <h1>Inserir Quadrado</h1>
+
+            <canvas id="myCanvas" width="500" height="500" style="border: 1px solid #642727;"></canvas>
+            <br>
+            <button onclick="insertSquare ()">Inserir Quadrado</button>
+            <script src="script.js"></script>
+        </body>
+</html>
+
+// Script.js //
+
+function insertSquare() {
+
+    const canvas = document.getElementById ("myCanvas");
+    const ctx = canvas.getContext('2d');
+
+    const squareSize = 50;
+
+    const x = Math.random () * (canvas.width - squareSize);
+    const y = Math.random () * (canvas.height - squareSize);
+
+    ctx.fillStyle = 'blue'; // Cor do quadrado //
+    ctx.fillRect (x, y, squareSize, squareSize); 
+    
+}
